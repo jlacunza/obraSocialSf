@@ -28,7 +28,7 @@ all:
   .settings:
     # Form security secret (CSRF protection)
     csrf_secret:            whisky_tango_foxtrot
-
+    
     # Output escaping settings
     escaping_strategy:      true
     escaping_method:        ESC_SPECIALCHARS
@@ -40,7 +40,7 @@ all:
     check_lock:             true
     
     # Spanish language supported, but it's not the default anymore
-    default_culture:        en
+    default_culture:        es
     i18n:                   true
     
     # Uncomment if you will use sfGuardPlugin

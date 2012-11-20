@@ -1,0 +1,21 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           afiliado
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              afiliado
+    plural:                afiliados
+    route_prefix:          afiliado
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

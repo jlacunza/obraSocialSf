@@ -36,7 +36,7 @@
           </a>
           <div class="nav-collapse">
           <?php if(!include_slot('layout_header')):?>
-            <a class="brand" href="#">Aladeen Conducccion</a>
+            <a class="brand" href="#">Aladeen Conduccion</a>
             <?php include_partial('default/menu');?>
           <?php endif;?>
           </div><!--/.nav-collapse -->

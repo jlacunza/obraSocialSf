@@ -1,0 +1,98 @@
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+  afiliado:
+    _attributes: { phpName: Afiliado, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    nro_doc: { phpName: NroDoc, type: INTEGER, required: false, index: unique }
+    apenombre: { phpName: Apenombre, type: VARCHAR, size: '45', required: false }
+    fechanac: { phpName: Fechanac, type: DATE, required: false }
+    calle: { phpName: Calle, type: VARCHAR, size: '45', required: false }
+    altura: { phpName: Altura, type: VARCHAR, size: '45', required: false }
+    piso: { phpName: Piso, type: VARCHAR, size: '45', required: false }
+    depto: { phpName: Depto, type: CHAR, required: false }
+    plan_id: { phpName: PlanId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: plan, foreignReference: id }
+    tipodoc_id: { phpName: TipodocId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: tipodoc, foreignReference: id }
+    reparticion_id: { phpName: ReparticionId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: reparticion, foreignReference: id }
+    localidad_id: { phpName: LocalidadId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: localidad, foreignReference: id }
+    fechaingreso: { phpName: Fechaingreso, type: DATE, required: false }
+    sexo_id: { phpName: SexoId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: sexo, foreignReference: id }
+    estadocivil_id: { phpName: EstadocivilId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: estadocivil, foreignReference: id }
+    _indexes: { fk_afiliado_plan: [plan_id], fk_afiliado_tipodoc1: [tipodoc_id], fk_afiliado_reparticion1: [reparticion_id], fk_afiliado_localidad1: [localidad_id], fk_afiliado_sexo1: [sexo_id], fk_afiliado_estadocivil1: [estadocivil_id] }
+  centroatencion:
+    _attributes: { phpName: Centroatencion, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, size: '45', required: true }
+    calle: { phpName: Calle, type: VARCHAR, size: '100', required: true }
+    numero: { phpName: Numero, type: VARCHAR, size: '45', required: false }
+    depto: { phpName: Depto, type: VARCHAR, size: '4', required: false }
+    piso: { phpName: Piso, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: false }
+    localidad_id: { phpName: LocalidadId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: localidad, foreignReference: id }
+    _indexes: { fk_centroatencion_localidad1: [localidad_id] }
+  centroatencion_has_prestador:
+    _attributes: { phpName: CentroatencionHasPrestador, idMethod: native }
+    centroatencion_id: { phpName: CentroatencionId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, required: true, foreignTable: centroatencion, foreignReference: id }
+    prestador_id: { phpName: PrestadorId, type: INTEGER, primaryKey: true, required: true, foreignTable: prestador, foreignReference: id }
+    _indexes: { fk_centroatencion_has_prestador_prestador1: [prestador_id], fk_centroatencion_has_prestador_centroatencion1: [centroatencion_id] }
+  especialidad:
+    _attributes: { phpName: Especialidad, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '45', required: true, index: unique }
+  estadocivil:
+    _attributes: { phpName: Estadocivil, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '45', required: false, index: unique }
+  localidad:
+    _attributes: { phpName: Localidad, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '45', required: true }
+  plan:
+    _attributes: { phpName: Plan, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '45', required: false, index: unique }
+    descuento: { phpName: Descuento, type: VARCHAR, size: '45', required: false, index: unique }
+  prestador:
+    _attributes: { phpName: Prestador, idMethod: native }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    apenom: { phpName: Apenom, type: VARCHAR, size: '45', required: true }
+    calle: { phpName: Calle, type: VARCHAR, size: '100', required: true }
+    numero: { phpName: Numero, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: false }
+    piso: { phpName: Piso, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: false }
+    depto: { phpName: Depto, type: VARCHAR, size: '4', required: false }
+    localidad_id: { phpName: LocalidadId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: localidad, foreignReference: id }
+    especialidad_id: { phpName: EspecialidadId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: especialidad, foreignReference: id }
+    _indexes: { fk_prestador_localidad1: [localidad_id], fk_prestador_especialidad1: [especialidad_id] }
+  reparticion:
+    _attributes: { phpName: Reparticion, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '45', required: true }
+  rol:
+    _attributes: { phpName: Rol, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '15', required: true, index: unique }
+  sexo:
+    _attributes: { phpName: Sexo, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '45', required: false, index: unique }
+  table1:
+    _attributes: { phpName: Table1, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    user: { phpName: User, type: VARCHAR, size: '10', required: true, index: unique }
+    password: { phpName: Password, type: VARCHAR, size: '10', required: true }
+  table1_has_table1:
+    _attributes: { phpName: Table1HasTable1, idMethod: native }
+    table1_id: { phpName: Table1Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, required: true, foreignTable: table1, foreignReference: id }
+    table1_id1: { phpName: Table1Id1, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, required: true, foreignTable: table1, foreignReference: id }
+    _indexes: { fk_table1_has_table1_table12: [table1_id1], fk_table1_has_table1_table11: [table1_id] }
+  tipodoc:
+    _attributes: { phpName: Tipodoc, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '45', required: true }
+  usuario:
+    _attributes: { phpName: Usuario, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    user: { phpName: User, type: VARCHAR, size: '10', required: true, index: unique }
+    password: { phpName: Password, type: VARCHAR, size: '10', required: true }
+    rol_id: { phpName: RolId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: rol, foreignReference: id }
+    _indexes: { fk_usuario_rol1: [rol_id] }

@@ -1,3 +1,93 @@
+reparticion:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                reparticion
+    module:               AbmReparticion
+    prefix_path:          /AbmReparticion
+    column:               id
+    with_wildcard_routes: true
+
+estado_civil:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                estadoCivil
+    module:               AbmEstadoCivil
+    prefix_path:          /AbmEstadoCivil
+    column:               id
+    with_wildcard_routes: true
+
+afiliado:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                afiliado
+    module:               AbmAfiliado
+    prefix_path:          /AbmAfiliado
+    column:               id
+    with_wildcard_routes: true
+
+especialidad:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                especialidad
+    module:               AbmEspecialidad
+    prefix_path:          /AbmEspecialidad
+    column:               id
+    with_wildcard_routes: true
+
+sexo:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                sexo
+    module:               AbmSexo
+    prefix_path:          /AbmSexo
+    column:               id
+    with_wildcard_routes: true
+
+tipo_doc:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                tipoDoc
+    module:               AbmTipoDoc
+    prefix_path:          /AbmTipoDoc
+    column:               id
+    with_wildcard_routes: true
+
+centro_atencion:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                centroAtencion
+    module:               AbmCentroAtencion
+    prefix_path:          /AbmCentroAtencion
+    column:               id
+    with_wildcard_routes: true
+
+localidad:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                localidad
+    module:               Abmlocalidad
+    prefix_path:          /Abmlocalidad
+    column:               id
+    with_wildcard_routes: true
+
+prestador:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                prestador
+    module:               AbmPrestador
+    prefix_path:          /AbmPrestador
+    column:               id
+    with_wildcard_routes: true
+
+plan:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                plan
+    module:               AbmPlan
+    prefix_path:          /AbmPlan
+    column:               id
+    with_wildcard_routes: true
+
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
