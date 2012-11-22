@@ -76,4 +76,9 @@ class prestadorActions extends sfActions
       $this->redirect('prestador/edit?id='.$Prestador->getId());
     }
   }
+
+  public function executeBuscarPrestador(sfWebRequest $request){
+      
+      
+  }
 }

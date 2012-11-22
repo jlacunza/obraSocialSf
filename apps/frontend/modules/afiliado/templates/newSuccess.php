@@ -1,3 +1,3 @@
-<h1>New Afiliado</h1>
+<h1>Nuevo Afiliado</h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

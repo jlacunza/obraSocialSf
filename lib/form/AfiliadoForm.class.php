@@ -18,6 +18,8 @@ class AfiliadoForm extends BaseAfiliadoForm
       $this->widgetSchema['fechanac']->setOption('years',$aniosnac);
       
       $this->validatorSchema['fechanac']->setOption('max',date("y-m-d"));
-      $this->validatorSchema['fechanac']->setOption('max','fecha futura no valida');
+      $this->validatorSchema['fechaingreso']->setOption('max',date("y-m-d"));
+
+// $this->validatorSchema['fechanac']->setOption('max','fecha futura no valida');
   }
 }

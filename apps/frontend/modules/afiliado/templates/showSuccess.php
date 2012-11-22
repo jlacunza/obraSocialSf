@@ -1,3 +1,4 @@
+<?php /*@var $Afiliado Afiliado */    ?>
 <table>
   <tbody>
     <tr>
@@ -5,15 +6,19 @@
       <td><?php echo $Afiliado->getId() ?></td>
     </tr>
     <tr>
-      <th>Nro doc:</th>
-      <td><?php echo $Afiliado->getNroDoc() ?></td>
-    </tr>
-    <tr>
-      <th>Apenombre:</th>
+      <th>Apellido y Nombre:</th>
       <td><?php echo $Afiliado->getApenombre() ?></td>
     </tr>
     <tr>
-      <th>Fechanac:</th>
+      <th>Tipo de Documento:</th>
+      <td><?php echo $Afiliado->getTipodoc()->getDescripcion() ?></td>
+    </tr>
+    <tr>
+      <th>Documento N°:</th>
+      <td><?php echo $Afiliado->getNroDoc() ?></td>
+    </tr>
+    <tr>
+      <th>Fecha de Nacimiento:</th>
       <td><?php echo $Afiliado->getFechanac() ?></td>
     </tr>
     <tr>
@@ -21,7 +26,7 @@
       <td><?php echo $Afiliado->getCalle() ?></td>
     </tr>
     <tr>
-      <th>Altura:</th>
+      <th>N°:</th>
       <td><?php echo $Afiliado->getAltura() ?></td>
     </tr>
     <tr>
@@ -33,38 +38,34 @@
       <td><?php echo $Afiliado->getDepto() ?></td>
     </tr>
     <tr>
-      <th>Plan:</th>
-      <td><?php echo $Afiliado->getPlanId() ?></td>
+      <th>Localidad:</th>
+      <td><?php echo $Afiliado->getLocalidad()->getDescripcion() ?></td>
     </tr>
     <tr>
-      <th>Tipodoc:</th>
-      <td><?php echo $Afiliado->getTipodocId() ?></td>
+      <th>Plan Tipo:</th>
+      <td><?php echo $Afiliado->getPlan()->getDescripcion() ?></td>
     </tr>
     <tr>
       <th>Reparticion:</th>
-      <td><?php echo $Afiliado->getReparticionId() ?></td>
+      <td><?php echo $Afiliado->getReparticion()->getDescripcion() ?></td>
     </tr>
     <tr>
-      <th>Localidad:</th>
-      <td><?php echo $Afiliado->getLocalidadId() ?></td>
-    </tr>
-    <tr>
-      <th>Fechaingreso:</th>
+      <th>Fecha de ingreso:</th>
       <td><?php echo $Afiliado->getFechaingreso() ?></td>
     </tr>
     <tr>
       <th>Sexo:</th>
-      <td><?php echo $Afiliado->getSexoId() ?></td>
+      <td><?php echo $Afiliado->getSexo()->getDescripcion() ?></td>
     </tr>
     <tr>
-      <th>Estadocivil:</th>
-      <td><?php echo $Afiliado->getEstadocivilId() ?></td>
+      <th>Estado Civil:</th>
+      <td><?php echo $Afiliado->getEstadocivil()->getDescripcion() ?></td>
     </tr>
   </tbody>
 </table>
 
 <hr />
 
-<a href="<?php echo url_for('afiliado/edit?id='.$Afiliado->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('afiliado/edit?id='.$Afiliado->getId()) ?>">Modificar</a>
 &nbsp;
-<a href="<?php echo url_for('afiliado/index') ?>">List</a>
+<a href="<?php echo url_for('afiliado/index') ?>">Volver a la lista</a>

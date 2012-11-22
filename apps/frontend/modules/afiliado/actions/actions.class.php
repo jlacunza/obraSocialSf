@@ -11,7 +11,24 @@ class afiliadoActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Afiliados = AfiliadoQuery::create()->find();
+    //$this->Afiliados = AfiliadoQuery::create()->find();
+      
+      $ApeyNom = $request->getParameter('apeynom');
+   
+       if (!empty($ApeyNom)) {
+          $this->Afiliados = AfiliadoQuery::create()->filterByApenombre('%'.$ApeyNom.'%')
+                  ->joinWithTipodoc()
+                  ->joinWithLocalidad()
+                  ->find();
+       }else{
+           $this->Afiliados = AfiliadoQuery::create()
+                  ->joinWithTipodoc()
+                  ->joinWithLocalidad()
+                  ->find();
+       }
+      
+      
+      
   }
 
   public function executeShow(sfWebRequest $request)
@@ -76,4 +93,11 @@ class afiliadoActions extends sfActions
       $this->redirect('afiliado/edit?id='.$Afiliado->getId());
     }
   }
+  
+  public function executeBuscarAfiliado(sfWebRequest $request){
+      
+      
+  }
+          
+
 }

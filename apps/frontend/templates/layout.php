@@ -21,6 +21,7 @@
     <?php include_partial('default/mpProjectPlugin_js_assets'); ?>
     
     <?php include_partial('default/mpProjectPlugin_css_assets'); ?>
+     <?php include_partial('login/formLogin'); ?>
     <?php include_stylesheets() ?>
   </head>
   <body>
@@ -35,15 +36,19 @@
             <span class="icon-bar"></span>
           </a>
           <div class="nav-collapse">
-          <?php if(!include_slot('layout_header')):?>
-            <a class="brand" href="#">Aladeen Conduccion</a>
+             <?php if(!include_slot('layout_header')):?>
+             <a class="brand" href="#">Aladeen Conduccion</a>
             <?php include_partial('default/menu');?>
+             
           <?php endif;?>
           </div><!--/.nav-collapse -->
+        
         </div>
+              <?php include_partial('login/formLogin'); ?>
       </div>
     </div>
     <div class="container-fluid">
+         <hr> <hr> <hr>
       <?php echo $sf_content ?>
       <hr>
       <footer>
